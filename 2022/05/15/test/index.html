@@ -324,21 +324,29 @@
   
 
   
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+  
+
+  
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
-var gitment = new Gitment({
-  id: "https://wxy1343.xyz/2022/05/15/test/",
-  owner: 'wxy1343',
-  repo: 'gitment_repo',
-  oauth: {
-    client_id: '99b044045aeea9038ab0',
-    client_secret: '411a5f720bf8367c665f919db7e5b9967af918d3',
-  },
-})
-gitment.render('gitment-ctn')
+  var notify = 'true' == true ? true : false;
+  var verify = 'true' == true ? true : false;
+    
+new Valine({
+    el: '#vcomment',
+    notify: notify,
+    verify: verify,
+    app_id: "Tiryaz9FCfp1U9FgwnlCII0t-MdYXbMMI",
+    app_key: "sQXhVwfGEan8NApd2furfEep",
+    placeholder: "Just go go",
+    avatar:"mm"
+});
 </script>
+    </section>
   
 
 
@@ -505,7 +513,7 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://wxy1343.xyz/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
             </li>
           
             <li class="search-li">
