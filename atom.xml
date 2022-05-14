@@ -6,7 +6,7 @@
   <link href="https://wxy1343.xyz/atom.xml" rel="self"/>
   
   <link href="https://wxy1343.xyz/"/>
-  <updated>2022-05-14T17:34:27.797Z</updated>
+  <updated>2022-05-14T19:01:10.120Z</updated>
   <id>https://wxy1343.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wxy1343.xyz/2022/05/15/test/"/>
     <id>https://wxy1343.xyz/2022/05/15/test/</id>
     <published>2022-05-14T17:32:16.000Z</published>
-    <updated>2022-05-14T17:34:27.797Z</updated>
+    <updated>2022-05-14T19:01:10.120Z</updated>
     
     <content type="html"><![CDATA[<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><p>测试</p>]]></content>
     
@@ -36,6 +36,8 @@
     
     
     <category term="test" scheme="https://wxy1343.xyz/tags/test/"/>
+    
+    <category term="随笔" scheme="https://wxy1343.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
