@@ -152,6 +152,110 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Ruijie-RG-SAM-Portal-userIndex分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/23/Ruijie-RG-SAM-Portal-userIndex%E5%88%86%E6%9E%90/">Ruijie RG-SAM-Portal userIndex分析</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/23/Ruijie-RG-SAM-Portal-userIndex%E5%88%86%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2022-10-22T19:59:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="userIndex分析"><a href="#userIndex分析" class="headerlink" title="userIndex分析"></a>userIndex分析</h1><h2 id="常规方法分析-对比法"><a href="#常规方法分析-对比法" class="headerlink" title="常规方法分析(对比法)"></a>常规方法分析(对比法)</h2><ul>
+<li><p>对比</p>
+<blockquote>
+<p>首先找几个不同的账号的userIndex进行观察<br><code>64623132613537653238383035353562343534663661383564393134313831395f31302e3130302e36362e36365f323130323230303031</code><br><code>64623132613537653238383035353562343534663661383564393134313831395f31302e3130302e38382e38385f323030323230323032</code><br>经过对比可以发现前面都是相同的常量<br><code>64623132613537653238383035353562343534663661383564393134313831395f31302e3130302e3</code><br>再对比下后面<br><code>6362e36365f323130323230303031</code><br><code>8382e38385f323030323230323032</code><br>可以发现重复项有2e还有5f，<br>还有很多3的组合，<br>把它们去掉来看看，<br><code>66 66 210220001</code><br><code>88 88 200220202</code><br>可以发现后面应该是账号，<br>前面的应该是ip地址后两位，<br>再次分析前面的常量，<br>去掉重复项<code>2e,5f,3</code>可以得到常量前缀<br><code>6462313261353765323838303535356234353466366138356439313431383139</code><br>后面的<code>31302e3130302e</code>就是<code>10 100</code><br>组合上之前的就是<br><code>10 100 66 66 210220001</code><br><code>10 100 88 88 200220202</code>  </p>
+</blockquote>
+</li>
+<li><p>hex编码</p>
+<blockquote>
+<p>分析到这里已经很明显了，这就是个hex编码<br>使用python输入<code>bytes.fromhex(&#39;64623132613537653238383035353562343534663661383564393134313831395f31302e3130302e38382e38385f323030323230323032&#39;)</code><br>就得到了<code>db12a57e2880555b454f6a85d9141819_10.100.88.88_200220202</code><br>前面这个<code>db12a57e2880555b454f6a85d9141819</code>暂时不知道，当作一个常量，之后分析源码时会讲到它的生成过程<br>所以userIndex是由固定前缀和学号还有ip组成的</p>
+</blockquote>
+</li>
+<li><p>测试</p>
+<blockquote>
+<p>分析完成后就是测试一下能否使用它绕过用户登录<br>构造userIndex并访问这个url<br><code>http://172.172.255.20/eportal/success.jsp?userIndex=xxx</code><br>（注意这里的172.172.255.20有eportal的是门户系统，172.172.255.10:8080有selfservice就是sam系统，不同学校可能不一样）<br>可以发现可以不使用密码顺利登录了</p>
+</blockquote>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2022/10/23/Ruijie-RG-SAM-Portal-userIndex%E5%88%86%E6%9E%90/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">漏洞</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">锐捷</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ruijie</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/23/Ruijie-RG-SAM-Portal-userIndex%E5%88%86%E6%9E%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-百度云盘加速链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -530,6 +634,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">百度云盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">漏洞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">锐捷</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ruijie</a>
               </li>
             
             <div class="clearfix"></div>
