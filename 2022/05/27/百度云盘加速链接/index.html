@@ -404,16 +404,16 @@ new Valine({
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
 
-<script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script>
+<!-- <script src="https://unpkg.com/leancloud-storage/dist/av-min.js"></script> -->
 <script type="text/javascript">
-    var leancloud_app_id = 'Tiryaz9FCfp1U9FgwnlCII0t-MdYXbMMI';
-    var leancloud_app_key = 'sQXhVwfGEan8NApd2furfEep';
-    var leancloud_serverURLs = 'https://Tiryaz9F.api.lncldglobal.com';
+    var app_id = 'Tiryaz9FCfp1U9FgwnlCII0t-MdYXbMMI';
+    var app_key = 'sQXhVwfGEan8NApd2furfEep';
+    var serverURLs = 'https://Tiryaz9F.api.lncldglobal.com';
 
     AV.init({
-        appId: leancloud_app_id,
-        appKey: leancloud_app_key,
-        serverURL: leancloud_serverURLs
+        appId: app_id,
+        appKey: app_key,
+        serverURL: serverURLs
     });
 
     var pageViewsLength = $(".pageViews").length;
