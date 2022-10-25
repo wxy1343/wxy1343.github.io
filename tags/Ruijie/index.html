@@ -263,10 +263,12 @@
 if(true){
     var leancloud_app_id  = 'Tiryaz9FCfp1U9FgwnlCII0t-MdYXbMMI';
     var leancloud_app_key = 'sQXhVwfGEan8NApd2furfEep';
+    var leancloud_serverURLs = 'https://Tiryaz9F.api.lncldglobal.com';
 
     AV.init({
         appId: leancloud_app_id,
-        appKey: leancloud_app_key
+        appKey: leancloud_app_key,
+        serverURLs: leancloud_serverURLs
     });
 
     var pageViewsLength = $(".pageViews").length;
