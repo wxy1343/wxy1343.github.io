@@ -152,6 +152,137 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Youpk脱壳机编译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/Youpk%E8%84%B1%E5%A3%B3%E6%9C%BA%E7%BC%96%E8%AF%91/">Youpk脱壳机编译</a>
+    </h1>
+  
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2022/10/30/Youpk%E8%84%B1%E5%A3%B3%E6%9C%BA%E7%BC%96%E8%AF%91/" class="pageViews">0</span>次
+  </a>
+
+        
+        <a href="/2022/10/30/Youpk%E8%84%B1%E5%A3%B3%E6%9C%BA%E7%BC%96%E8%AF%91/" class="archive-article-date">
+  	<time datetime="2022-10-30T08:08:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="配置编译环境"><a href="#配置编译环境" class="headerlink" title="配置编译环境"></a>配置编译环境</h1><h2 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h2><ul>
+<li>这里我使用<code>VMware</code>安装<code>Ubuntu-22.04.1-desktop-amd64.iso</code></li>
+<li>具体教程可以参考<code>https://zhuanlan.zhihu.com/p/141033713</code><h2 id="编译配置"><a href="#编译配置" class="headerlink" title="编译配置"></a>编译配置</h2></li>
+<li>需要至少16G内存</li>
+<li>200G左右的硬盘</li>
+<li>如果满足以上条件可以继续了<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2></li>
+<li><code>sudo apt-get update &amp;&amp; sudo apt-get install git openjdk-8-jdk python git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip libncurses5</code><h2 id="配置repo"><a href="#配置repo" class="headerlink" title="配置repo"></a>配置repo</h2></li>
+<li><code>mkdir ~/bin</code></li>
+<li><code>PATH=~/bin:$PATH</code></li>
+<li><code>curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo &gt; ~/bin/repo</code></li>
+<li><code>chmod a+x ~/bin/repo</code></li>
+<li><code>sudo ln /usr/bin/python2 /usr/bin/python</code></li>
+</ul>
+<h1 id="下载AOSP源码"><a href="#下载AOSP源码" class="headerlink" title="下载AOSP源码"></a>下载AOSP源码</h1><ul>
+<li>具体教程可以查看<code>https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/</code></li>
+<li>新建源码目录<ul>
+<li><code>mkdir aosp</code></li>
+<li><code>cd aosp</code></li>
+</ul>
+</li>
+<li>配置repo使用tuna的镜像源<ul>
+<li>修改<code>~/.bashrc</code>在最后插入<code>export REPO_URL=&#39;https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/</code>并输入<code>source ~/.bashrc</code>刷新环境变量</li>
+</ul>
+</li>
+<li>配置git<ul>
+<li><code>git config --global user.email &quot;username@gmail.com&quot;</code></li>
+<li><code>git config --global user.name &quot;username&quot;</code></li>
+</ul>
+</li>
+<li>初始化仓库<ul>
+<li>repo init -u <a target="_blank" rel="noopener" href="https://aosp.tuna.tsinghua.edu.cn/platform/manifest">https://aosp.tuna.tsinghua.edu.cn/platform/manifest</a></li>
+</ul>
+</li>
+<li>初始化并指定版本<ul>
+<li>在此查看版本<code>https://source.android.google.cn/docs/setup/about/build-numbers#source-code-tags-and-builds</code></li>
+<li>这里<code>Youpk</code>修改的源码是<code>android-7.1.2_r33</code>，所以输入<code>repo init -u https://aosp.tuna.tsinghua.edu.cn/platform/manifest -b android-7.1.2_r33</code> –depth 1</li>
+</ul>
+</li>
+<li>同步源码<ul>
+<li>repo sync -j4</li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2022/10/30/Youpk%E8%84%B1%E5%A3%B3%E6%9C%BA%E7%BC%96%E8%AF%91/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">脱壳</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Youpk</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/Youpk%E8%84%B1%E5%A3%B3%E6%9C%BA%E7%BC%96%E8%AF%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Ruijie-RG-SAM-Portal-GetShell记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -818,6 +949,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">脱壳</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Youpk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
